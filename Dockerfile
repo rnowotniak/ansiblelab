@@ -10,6 +10,3 @@ COPY run.sh /root/
 
 CMD ["bash", "/root/run.sh"]
         
-# ssh-keygen -q -N "" -f ~/.ssh/sshkey
-
-# /usr/sbin/sshd -D -e "$@"

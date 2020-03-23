@@ -24,3 +24,6 @@ docker run -v $PWD/keys:/keys:ro -it --name ansible_node2 -h ansible_node2 --rm 
 docker run -v $PWD/keys:/root/.ssh -it centos
 
 * https://www.cyberciti.biz/python-tutorials/linux-tutorial-install-ansible-configuration-management-and-it-automation-tool/
+* https://wiki.archlinux.org/index.php/Ansible
+* https://www.cyberciti.biz/python-tutorials/linux-tutorial-install-ansible-configuration-management-and-it-automation-tool/
+
