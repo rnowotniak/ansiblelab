@@ -1,0 +1,18 @@
+version: '2.3'
+services:
+    master:
+        image: rnowotniak/ansiblelab
+        container_name: ansible_master
+        hostname: ansible
+        command: ["bash", "/root/run.sh", "master"]
+        volumes:
+            - /home/rob/ansiblelab/keys:/keys:ro
+    nodes:
+        image: rnowotniak/ansiblelab
+        command: ["bash", "/root/run.sh", "node"]
+        depends_on:
+            - master
+        volumes:
+            - /home/rob/ansiblelab/keys:/keys:ro
+        scale: 3
+        
