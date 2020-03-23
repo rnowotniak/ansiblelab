@@ -1,7 +1,19 @@
 # ansiblelab
-Ansible playground (Docker, Docker-composer, Centos)
+Personal Ansible playground (Docker, Docker-composer, Centos8)
 
-How I configured this.
+Contact: Robert Nowotniak <rnowotniak@gmail.com>
+
+Tested on ArchLinux as the Docker host.
+
+## Quick start
+
+    git clone https://github.com/rnowotniak/ansiblelab
+    docker pull rnowotniak/ansiblelab
+
+    cd ansiblelab
+    docker-compose up
+
+## How I configured this.
 
 Ansible node.
 All required:
@@ -12,6 +24,8 @@ All required:
 Ansible master.
     Configure inventories
     ssh -i /keys/mykey 172.17.0.3
+
+## Some useful commands
 
 * ansible all -m ping
 * ansible all -m ping -i inv
