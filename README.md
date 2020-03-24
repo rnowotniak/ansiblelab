@@ -8,8 +8,9 @@ Tested on ArchLinux as the Docker host.
 ## Quick start
 
 Download the image from my
-[Dockerhub](https://hub.docker.com/u/rnowotniak) account, and clone this repository from my
-[github](https://github.com/rnowotniak/ansiblelab) repository:
+[Dockerhub](https://hub.docker.com/u/rnowotniak) account, and clone this from my
+[github](https://github.com/rnowotniak/ansiblelab)
+(which allows to rebuild the same image yourself from scratch):
 
     docker pull rnowotniak/ansiblelab
     git clone https://github.com/rnowotniak/ansiblelab
@@ -19,7 +20,7 @@ Create ssh keys which will be used to communicate betwen the master and the node
     cd ansiblelab
     ssh-keygen -q -N "" -f keys/ansiblekey
 
-Start the containers
+Start the containers with docker-compose per the definitions in docker-compose.yml:
 
     docker-compose up
 
@@ -52,25 +53,14 @@ To shutdown gracefully and cleanup everthing:
 
 ![shutdown](img/shutdown.png)
 
-## How is this configured
-
-Ansible node.
-All required:
-    generate ssh keys
-    Start sshd server
-    copy private key to Ansible master
-
-Ansible master.
-    Configure inventories
-    ssh -i /keys/mykey 172.17.0.3
-
-## Some useful commands
+## A few useful commands
 
 * ansible all -m ping
 * ansible all -m ping -i inv
 * ansible all -m shell -a "uname -a" --ask-pass
 * docker run -v $PWD/keys:/keys:ro -it --name ansible_node2 -h ansible_node2 --rm anstmp
 * docker run -v $PWD/keys:/root/.ssh -it centos
+* docker build -t account/imagename .
 
 ## Some useful links
 
