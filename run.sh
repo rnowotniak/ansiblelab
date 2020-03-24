@@ -5,8 +5,8 @@ if [ "$#" -lt 1 -o \( "$1" != master -a "$1" != node \) ]; then
 	exit 1
 fi
 
-PUBLIC_KEY=/keys/authorized_keys
-PRIVATE_KEY=/keys/mykey
+PUBLIC_KEY=/keys/ansiblekey.pub
+PRIVATE_KEY=/keys/ansiblekey
 
 [ ! -e "~/.ssh" ] && mkdir ~/.ssh
 
@@ -26,7 +26,7 @@ elif [ "$1" = node ]; then
         echo "sshd would not be able to accept connections. Exiting."
         exit 1
     fi
-    cp "$PUBLIC_KEY" ~/.ssh/
+    cp "$PUBLIC_KEY" ~/.ssh/authorized_keys
     chown 0:0 ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
     rm -f /run/nologin

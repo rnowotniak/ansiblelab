@@ -7,7 +7,7 @@ services:
         command: ["bash", "/root/run.sh", "master"]
         volumes:
             - $PWD/keys:/keys:ro
-    nodes:
+    node:
         image: rnowotniak/ansiblelab
         command: ["bash", "/root/run.sh", "node"]
         depends_on:
