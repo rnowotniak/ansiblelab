@@ -7,6 +7,9 @@ RUN yum install -y epel-release && \
     ssh-keygen -A
         
 COPY run.sh /root/
+COPY ansible.cfg /root/
+COPY inventory /root/
 
+WORKDIR /root
 CMD ["bash", "/root/run.sh"]
         

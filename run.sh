@@ -8,11 +8,18 @@ fi
 PUBLIC_KEY=/keys/authorized_keys
 PRIVATE_KEY=/keys/mykey
 
-mkdir ~/.ssh
+[ ! -e "~/.ssh" ] && mkdir ~/.ssh
 
 if [ "$1" = master ]; then
     cp "$PRIVATE_KEY" ~/.ssh/id_dsa
-    bash -l
+    if [ -t 0 ]; then
+            # interactive shell from Docker
+        	bash -l
+    else
+            echo "Please attach in interactive session to work with the master container."
+            echo "This process will sleep now to keep the master container running."
+            sleep infinity
+    fi
 elif [ "$1" = node ]; then
     if [ ! -r "$PUBLIC_KEY" ]; then
         echo "$PUBLIC_KEY is missing"
