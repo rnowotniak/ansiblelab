@@ -1,5 +1,5 @@
 # ansiblelab
-Personal Ansible playground (Docker, Docker-composer, Centos8)
+Personal Ansible playground (based on Docker, Docker-composer, Centos8)
 
 Contact: Robert Nowotniak <rnowotniak@gmail.com>
 
@@ -7,8 +7,14 @@ Tested on ArchLinux as the Docker host.
 
 ## Quick start
 
-    git clone https://github.com/rnowotniak/ansiblelab
+Download the image from my
+[Dockerhub](https://hub.docker.com/u/rnowotniak) account, and clone this repository from my
+[github](https://github.com/rnowotniak/ansiblelab) repository:
+
     docker pull rnowotniak/ansiblelab
+    git clone https://github.com/rnowotniak/ansiblelab
+
+asdf
 
     cd ansiblelab
     docker-compose up
