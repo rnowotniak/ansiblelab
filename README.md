@@ -58,6 +58,9 @@ To shutdown gracefully and cleanup everthing:
 * ansible all -m ping
 * ansible all -m ping -i inv
 * ansible ...  -o
+* ansible ...  -f 5  (fork,  run in parallel)
+* ansible ...  -B ... -P 0  (async)
+* ansible ...  -m async_status -a jid=....
 * ansible-playbook
 * ansible all -m shell -a "uname -a" --ask-pass
 * docker run -v $PWD/keys:/keys:ro -it --name ansible_node2 -h ansible_node2 --rm anstmp
@@ -69,9 +72,13 @@ Some Ansible modules:
 * copy
 * fetch
 * slurp
+* setup  (shows facts)
+* service
 * shell
 * command
+* unarchive
 * raw
+* async_status
 
 Example playbook YAML file:
 
@@ -85,8 +92,19 @@ Example playbook YAML file:
             dest: /tmp/fetched
 
 
-## Some useful links
+## Some useful links and resources
 
+Books:
+
+* [Ansible: Up and Running](http://www.ansiblebook.com/) by Lorin Hochstein and René Moser
+
+* [Hands-On Enterprise Automation on Linux: Efficiently perform large-scale Linux infrastructure automation with Ansible](https://www.amazon.com/Hands-Enterprise-Automation-Linux-infrastructure-ebook/dp/B083XV26FM) by James Freeman
+
+* [Practical Network Automation: Leverage the power of Python and Ansible to optimize your network](https://www.amazon.com/Practical-Network-Automation-Leverage-optimize-ebook/dp/B075CNDQ9B) by Abhishek Ratah  (esp. pages 152-160)
+
+Links:
+
+* Quite simple yet complete Ansible real life example (MariaDB installation): https://github.com/mrlesmithjr/ansible-mariadb-mysql
 * https://www.cyberciti.biz/python-tutorials/linux-tutorial-install-ansible-configuration-management-and-it-automation-tool/
 * https://wiki.archlinux.org/index.php/Ansible
 * https://www.cyberciti.biz/python-tutorials/linux-tutorial-install-ansible-configuration-management-and-it-automation-tool/
