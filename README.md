@@ -57,10 +57,33 @@ To shutdown gracefully and cleanup everthing:
 
 * ansible all -m ping
 * ansible all -m ping -i inv
+* ansible ...  -o
+* ansible-playbook
 * ansible all -m shell -a "uname -a" --ask-pass
 * docker run -v $PWD/keys:/keys:ro -it --name ansible_node2 -h ansible_node2 --rm anstmp
 * docker run -v $PWD/keys:/root/.ssh -it centos
 * docker build -t account/imagename .
+
+Some Ansible modules:
+* user
+* copy
+* fetch
+* slurp
+* shell
+* command
+* raw
+
+Example playbook YAML file:
+
+    ---
+    - name: My playbook
+      hosts: ansiblelab_node_*
+      tasks:
+        - name: get /etc/hostname file
+          fetch:
+            src: /etc/hostname
+            dest: /tmp/fetched
+
 
 ## Some useful links
 
